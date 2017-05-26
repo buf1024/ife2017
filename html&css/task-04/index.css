@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container-center {
+    position: relative;
+    float: left;
+    left: 50%;
+}
+
+.container {
+    margin-top: 50%;
+    min-height: 200px;
+    min-width: 400px;
+    background: #ccc;
+    position: relative;
+    float: left;
+    left: -50%;
+    overflow: hidden;
+}
+.umb-left-top {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    /* 使用绝对定位导致文字被覆盖，使用浮动定位，可实现文字围绕
+    position: absolute;
+    left: -50px;
+    top:-50px;
+    */
+    float: left;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-bottom-right-radius: 50px;
+}
+.umb-right-bottom {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    border-top-left-radius: 50px;
+}
