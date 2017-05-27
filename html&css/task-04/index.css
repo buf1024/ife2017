@@ -10,7 +10,7 @@
 }
 
 .container {
-    margin-top: 50%;
+    margin: 50% 0;
     min-height: 200px;
     min-width: 400px;
     background: #ccc;
