@@ -69,8 +69,12 @@ th{
     display: inline;
     font-size: 0.8rem;
 }
+.container {
+    margin: 20px;
+}
 .content {
-    margin: 20px 20px;
+    margin-left: 20px;
+    margin-right: 360px;
 }
 .title1 {
     font-size: 1.5rem;
@@ -93,9 +97,17 @@ th{
 }
 .passage {
     background: white;
-    padding: 20px;
     margin: 10px;
-    box-shadow: 4px 4px lightgrey;
+    padding: 20px;
+    box-shadow: 4px 4px lightgrey; 
+}
+.form-input {
+    background: white;
+    padding: 20px;
+    margin-right: 10px;
+    box-shadow: 4px 4px lightgrey; 
+    width: 300px;
+    float: right; 
 }
 .passage span {
     text-align: center;
@@ -108,6 +120,7 @@ th{
     height: 200px;
     width: 200px;
     border: 1px solid #cbcbcb;
+    display: inline-block;
 }
 .passage-img img {
     width: 80%;
