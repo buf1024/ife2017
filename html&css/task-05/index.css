@@ -48,6 +48,10 @@ th{
     background-color: #333;
     text-align: left;
 }
+img {
+    width: 80px;
+    height: 80px;
+}
 .disp-table tr:last-child{
     background-color: #ccc;
 }
@@ -73,7 +77,6 @@ th{
     margin: 20px;
 }
 .content {
-    margin-left: 20px;
     margin-right: 360px;
 }
 .title1 {
