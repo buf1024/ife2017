@@ -5,6 +5,7 @@
 
 body {
     background-color: #dedede;
+    position: relative;
 }
 header, footer {
     background-color: #333;
@@ -19,8 +20,9 @@ header {
 }
 footer {
     text-align: center;  
-    position: absolute;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 table {
     border-spacing: 15px;
@@ -47,11 +49,15 @@ a:hover {
     color: white;
 }
 
+.container {
+    margin-bottom: 70px;
+}
 .content {
-    margin: 10px;
+    margin: 20px;
     background: white;
     padding: 10px;
     box-shadow: 4px 4px lightgrey;
+    border-radius: 4px;
 }
 
 .content-header {
