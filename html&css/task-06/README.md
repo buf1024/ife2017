@@ -7,3 +7,6 @@
 3. 图片透明度opacity: 0.5
 4. body 下面加div元素 margin: 0px auto实现居中对齐。
 5. float布局，放html结构前面
+6. font-variant: small-caps; /*关键属性，解决首字变大后，下划线变粗问题*/
+   text-transform: capitalize; /*关键属性，解决首字变大后，下划线变粗问题*/
+7. 
