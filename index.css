@@ -28,15 +28,16 @@ table {
     border-spacing: 15px;
     table-layout: fixed;
     text-align: center;
-    height: 100px;
     width: 100%;
 }
 table td {
-    border: 1px solid #ccc;
     word-break: break-all;
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.border {
+    border: 1px solid #ccc;
 }
 
 a {
@@ -74,6 +75,6 @@ a:hover {
     vertical-align: middle;
     text-align: center;
 }
-td:hover {
+.border:hover {
     background: lightblue;
 }
