@@ -20,11 +20,10 @@ function addAqiData(city, value) {
  * 渲染aqi-table表格
  */
 function renderAqiList() {
-
     var elms = document.querySelectorAll('table tr');
-    elms.forEach(function (elm) {
-        elm.remove();
-    });
+    for(var i=0; i<elms.length; i++) {
+        elms.item(i).remove();
+    }
     if (Object.keys(aqiData).length > 0) {
         var tbl = document.querySelector('table');
         var html = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>';
