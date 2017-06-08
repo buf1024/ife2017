@@ -90,8 +90,9 @@ function renderChart() {
   for (var i = 0; i < size; i++) {
     div.children.item(0).remove();
   }
+  var html = '';
   for (var k in chartData) {
-    var p = document.createElement('p');
+    //var p = document.createElement('p');
     var style = 'display: inline-block;margin: 0.5px;';
     if (k[0] == 'M') {
       style = style + 'width:' + monthWidth + ';';
@@ -112,9 +113,11 @@ function renderChart() {
     } else {
       style = style + 'background-color:black;';
     }
-    p.style = style;
-    div.appendChild(p);
+    //p.style = style;
+    //div.appendChild(p);
+    html = html + '<p style="' + style + '"></p>';
   }
+  div.innerHTML = html;
 }
 
 /**
