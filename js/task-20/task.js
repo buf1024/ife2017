@@ -22,75 +22,104 @@ var EventUtil = {
 };
 
 var testData = [];
+var matchData = [];
 
-function render(data) {
+function render() {
   var elm = document.querySelector('.output')
   var children = elm.children;
   for (var i = 0; i < children.length; i++) {
     children.item(0).remove();
   }
   var html = '';
-  for (var i = 0; i < data.length; i++) {
-    html = html + '<p style="height: ' + data[i] + '%;"></p>';
+  for (var i = 0; i < testData.length; i++) {
+    html = html + '<p>';
+    if (matchData[i] != null) {
+      if (matchData[i].i > 0) {
+        html = html + testData[i].substr(0, matchData[i].i);
+      }
+      html = html + '<span>' + matchData[i].m + '</span>';
+      var len = matchData[i].m.length;
+      if (matchData[i].i + len < testData[i].length) {
+        html = html + testData[i].substring(matchData[i].i + len, testData[i].length);
+      }
+    } else {
+      html = html + testData[i];
+    }
+    html = html + '</p>';
   }
   elm.innerHTML = html;
 }
 
-function getValue() {
-  var input = document.querySelector('#input');
-  var pat = /^[1-9][0-9]$|^100$/;
-  if (pat.test(input.value)) {
-    return parseInt(input.value, 10);
-  }
-  return -1;
-}
 
 function leftIn(elm) {
-  var val = getValue();
-  if (val < 0) {
-    alert('输入范围:10~100');
+  var input = document.querySelector('#input');
+  if (input.value.length <= 0) {
+    alert("input text first.")
     return;
   }
-  if (testData.length >= 60) {
-    alert("超出长度60为极限");
-    return;
+  var data = input.value.split('\n');
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].trim().length > 0) {
+      testData.splice(0, 0, data[i]);
+      matchData.splice(0, 0, null);
+    }
+
   }
-  testData.splice(0, 0, val);
+  input.value = '';
   render(testData);
 }
-
 function leftOut() {
   if (testData.length > 0) {
     testData.splice(0, 1);
+    matchData.splice(0, 1);
     render(testData);
   }
 }
-
 function rightIn() {
-  var val = getValue();
-  if (val < 0) {
-    alert('输入范围:10~100');
+  var input = document.querySelector('#input');
+  if (input.value.length <= 0) {
+    alert("input text first.")
     return;
   }
-  if (testData.length >= 60) {
-    alert("超出长度60为极限");
-    return;
+  var data = input.value.split('\n');
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].trim().length > 0) {
+      testData.push(data[i]);
+      matchData.push(null);
+    }
+
   }
-  testData.push(val);
+  input.value = '';
   render(testData);
 }
-
 function rightOut() {
   if (testData.length > 0) {
-    testData.splice(testData.length - 1, 1);
+    testData.splice(testData.length - 1, 1);  
+    matchData.splice(matchData.length - 1, 1);
     render(testData);
   }
 }
 
-function sort() {
-  if(testData.length > 0) {
-    testData.sort();
-    render(testData);
+function querytext() {
+  var query = document.querySelector('#query-text');
+  if (query.value.length > 0 && testData.length > 0) {
+    var match = false;
+    matchData = [];
+    var re = new RegExp(query.value);
+    for (var i = 0; i < testData.length; i++) {
+      matchData[i] = null;
+      var m = re.exec(testData[i]);
+      if (m != null) {
+        match = true;
+        var ms = m[0];
+        var mi = m.index;
+        match = true;
+        matchData[i] = { 'm': ms, 'i': mi };
+      }
+    }
+    if (match) {
+      render();
+    }
   }
 }
 
@@ -113,9 +142,8 @@ function init() {
     'click', rightOut);
 
   EventUtil.addHandler(
-    document.querySelector("#sort"),
-    'click', sort);
-
+    document.querySelector("#query"),
+    'click', querytext);
 }
 
 init();
