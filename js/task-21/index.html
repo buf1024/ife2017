@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>IFE JavaScript Task 21</title>
+  <style>
+    .container {
+      padding: 10px 0px;
+    }
+    textarea {
+      margin-top: 10px;
+      display: block;
+    }
+    button {
+      margin: 15px 0;
+      border-radius: 2px;
+    }
+    .tag-output{
+      background-color: #84c0f8;
+      color: white;
+      margin: 20px 2px 5px 2px;
+      height: 1.5rem;
+      padding-top: 0.5rem;
+      text-align: center;
+      display: inline-block;
+      border-radius: 2px;
+    }
+    .tag-output:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+    .tag-output:hover::before {
+      content: '删除';
+    }
+  
+    .interest-output {
+      background-color: #fecc8b;
+      color: white;
+      margin: 5px 2px 5px 2px;
+      height: 1.5rem;
+      padding-top: 0.5rem;
+      text-align: center;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <label for="tag-input">Tags:</label>
+    <input type="text" id="tag-input">
+    <div class="tags">
+    </div>
+    <textarea id="interest-input" type="text" name="input" cols="40" rows="5" placeholder="输入数据"></textarea>
+    <button id="interest-comfirm">确认兴趣爱好</button>
+    <div class="interest">
+    </div>
+  </div>
+  <script src="task.js"></script>
+</body>
+
+</html>
