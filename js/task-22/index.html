@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>IFE JavaScript Task 22</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .root {
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      margin: 10px;
+      border: 1px solid black;
+      width: 600px;
+      height: 120px;
+    }
+    .node {
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      margin: 10px;
+      border: 1px solid black;
+      width: 50%;
+    }
+    .leaf  {
+      margin: 10px;
+      border: 1px solid black;
+      width: 50%;
+    }
+    button {
+      width: 50px;
+      background-color: #eee;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+  <div class="root">
+    <div class="node">
+      <div class="node">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+      </div>
+      <div class="node">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+      </div>
+    </div>
+    <div class="node">
+      <div class="node">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+      </div>
+      <div class="node">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button id="preOrder">前序</button>  
+    <button id="midOrder">中序</button>
+    <button id="postOrder">后序</button>
+    <button id="stop">停止</button>
+  </div>
+  </div>
+  <script src="task.js"></script>
+</body>
+
+</html>
